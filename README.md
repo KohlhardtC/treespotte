@@ -44,7 +44,8 @@ I found it a bit painful learning ROS2 (Probably because I tend to skim document
 - Sometimes you just need to shut down rviz2 and all other ros nodes to get things working properly. 
 - You need something to give you the map->odom transformation. For Treespotte 3 that thing is 
 - You need something to give you the odom->base_link transformation. For Treespotte 3 that thing is the RealSense wrapper but it's actually transforming to `_pose_frame` so you need to add in a static transform from `_pose_frame` to `base_link`.  
-
+- When building a URDF for your robot, positive X is the front of your robot as per [rep 103](https://www.ros.org/reps/rep-0103.html). In RVIZ2 this shows up as a red bar. If your robot seems to be driving the wrong direction, there is a good chance this is the cause. Ask me how I know! ;)
+- Units are meters, kg, seconds as per [rep 103](https://www.ros.org/reps/rep-0103.html) but sometimes nanoseconds are used
 
 # Launch Instructions
 
