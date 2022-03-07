@@ -1,11 +1,13 @@
-# NOTICE: Not Supported
+# Not Supported
 This is my personal project which is oriented around my goal to build a [chainsaw wielding robot](https://www.chriskohlhardt.com/forest-thinning-robots) using ROS2. At this stage I'm really just learning. I'm happy to help others who are also learning, but I'm not trying to support this as an active project at this point (and may never do so in the future). I'm making this repository public to help others who are also trying to learn. Good luck!
 
 # Prerequisites
 
+- You'll need an SBC (Single Board Computer) for your robot. At the bottom of this page in the Loadout section I detail the SBC I'm using along with other hardware
 - This work has been done using ROS2/Foxy on Ubuntu 20.04. I think it's likely to work with ROS2/Galactic
-- For RVIZ2, I've had good luck using [The RobotStack install of ROS2 on my M1 Mac](https://github.com/RoboStack/ros-galactic)
+- You'll be happier if you can run RVIZ2 on your local machine. I've had good luck using [The RobotStack install of ROS2 on my M1 Mac](https://github.com/RoboStack/ros-galactic) and they offer Windows builds too. You may try the official ROS2 version on your local machine as well. 
 - The hardware loadout for each Robot will be described below. 
+- The instructions below assume you have [SSH Authentication](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) setup with GitHub on your SBC. If you don't want to do this, you can probably get away with replacing *git clone git@github.com* with *git clone https://github.com*
 
 # Helpful Documentation
 
@@ -15,12 +17,34 @@ This is my personal project which is oriented around my goal to build a [chainsa
 # Installation
 
 - [Install ROS2](https://docs.ros.org/en/foxy/Installation.html)
-- Create a new ROS2 workspace
+- Create a new ROS2 workspace (it's ok if you replace ~ for another workspace location, but we'll assume ~/treespotte_ws for this document)
+  - mkdir -p ~/treespotte_ws/src/
+  - cd ~/treespotte_ws/src
+- Install other required ROS2 components
+  - TODO 
+- [RealSense ROS2 Wrapper](https://github.com/IntelRealSense/realsense-ros/tree/ros2) 
+  - Install with "Method 2" for best performance
+  - When you get to "Step 3: Install Intel® RealSense™ ROS2 wrapper from Sources" - You should be installing this in the *~/treespotte_ws/src* folder you created above
+- Install YDLidar Drivers
+  - cd ~treespotte_ws/src
+  - git clone git@github.com/yangfuyuan/ydlidar_ros2
+  - cd ~/treespotte_ws
+  - colcon build --symlink-install 
+- Install RoboClaw drivers
+  - cd ~/treespotte_ws/src
+  - git clone git@github.com:KohlhardtC/roboclaw_ros.git
 
+# Launch Instructions
 
-# Treespotte 3 Hardware Loadout
+## Treespotte 3
 
-I had a hard time finding any examples of hardware loadouts when I was building this, so I'm sharing what's worked for me. No affiliate links. 
+# Hardware Loadout
+
+I had a hard time finding examples of hardware loadouts when I was building this, so I'm sharing what's worked for me. No affiliate links. 
+
+## Treespotte 3
+
+![Treespotte 3 image](https://images.squarespace-cdn.com/content/v1/5e94fa70eb55292a277cc50a/f9326c01-3478-4c79-aa75-34e213347d10/IMG_0231.jpeg)
 
 - 3D printed base created in Fusion 360 (models availible upon request)
 - [LattePanda 864s](https://www.lattepanda.com/products/lattepanda-alpha-864s.html) with a [M.2 Flash Drive](https://www.amazon.com/gp/product/B08GL575DB/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&th=1)
@@ -36,4 +60,4 @@ I had a hard time finding any examples of hardware loadouts when I was building 
 - [Wheel Hubs](https://www.robotshop.com/en/pololu-universal-aluminum-6mm-mounting-hubs-4-40.html)
 - [Wire](https://www.amazon.com/gp/product/B088KQFHV7/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1)
 - Short USB cables for the Lidar and T265
-- 
+
