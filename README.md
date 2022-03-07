@@ -13,6 +13,7 @@ This is my personal project which is oriented around my goal to build a [chainsa
 
 - If you are new to ROS2, you're best off starting with [the official ROS2 tutorials](https://docs.ros.org/en/foxy/Tutorials.html)
 - I've also found that the paid lessons on [The Construct](https://www.theconstructsim.com) are helpful too
+- [Nav2 Documentation](https://navigation.ros.org) - The [First-Time Robot Setup Guide](https://navigation.ros.org/setup_guides/index.html) is super helpful when learning
 
 # Installation
 
@@ -34,9 +35,16 @@ This is my personal project which is oriented around my goal to build a [chainsa
   - cd ~/treespotte_ws/src
   - git clone git@github.com:KohlhardtC/roboclaw_ros.git
 
-# RVIZ2 Tip
+# Tips & Tricks & Useful Commands
 
-rviz2 has a learning curve. You'll save yourself some hassle if you use the rviz2 configuration file included in this repository
+I found it a bit painful learning ROS2 (Probably because I tend to skim documentation). Here are some tips that I wish were front and center as I was learning
+
+- rviz2 has a learning curve. You'll save yourself some hassle if you use the rviz2 configuration file included in this repository
+- If you can't see anything in rviz2, it might be because you don't have Global Options -> Fixed Frame set to *base_link*. If you have mapping working, you'll want to change Global Options -> Fixed Frame set to *map*
+- Sometimes you just need to shut down rviz2 and all other ros nodes to get things working properly. 
+- You need something to give you the map->odom transformation. For Treespotte 3 that thing is 
+- You need something to give you the odom->base_link transformation. For Treespotte 3 that thing is the RealSense wrapper but it's actually transforming to `_pose_frame` so you need to add in a static transform from `_pose_frame` to `base_link`.  
+
 
 # Launch Instructions
 
