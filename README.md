@@ -34,6 +34,10 @@ This is my personal project which is oriented around my goal to build a [chainsa
   - cd ~/treespotte_ws/src
   - git clone git@github.com:KohlhardtC/roboclaw_ros.git
 
+# RVIZ2 Tip
+
+rviz2 has a learning curve. You'll save yourself some hassle if you use the rviz2 configuration file included in this repository
+
 # Launch Instructions
 
 ## Treespotte 3
