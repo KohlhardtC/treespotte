@@ -4,7 +4,7 @@ This is my personal project which is oriented around my goal to build a [chainsa
 # Prerequisites
 
 - You'll need an SBC (Single Board Computer) for your robot. At the bottom of this page in the Loadout section I detail the SBC I'm using along with other hardware
-- This work has been done using ROS2/Foxy on Ubuntu 20.04. I think it's likely to work with ROS2/Galactic
+- This work is known to workon ROS2/Foxy on Ubuntu 20.04. I think it's likely to work with ROS2/Galactic
 - You'll be happier if you can run RVIZ2 on your local machine. I've had good luck using [The RobotStack install of ROS2 on my M1 Mac](https://github.com/RoboStack/ros-galactic) and they offer Windows builds too. You may try the official ROS2 version on your local machine as well. 
 - The hardware loadout for each Robot will be described below. 
 - The instructions below assume you have [SSH Authentication](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) setup with GitHub on your SBC.
