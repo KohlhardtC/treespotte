@@ -62,12 +62,13 @@ Colors of Axis in RVIZ2:
 
 | command | explanation |
 |--------|------------|
-| colcon build --symlink-install | This is how you should typically build |
-| colcon build --packages-select $package | Save yourself time if you're working on one package |
-| check_urdf $filename | Is your URDF not rendering? You can check if it's valid with this command. Don't use this one if you have a xacro URDF |
-| xacro $filename.xacro \| ros2 run gazebo_ros spawn_entity.py -entity a_name -x 0 -y 0 -z 0 -stdin | Spawn a URDF into Gazebo |
-| ros2 run tf2_tools view_frames.py | This will save frames.pdf to the location you ran the command. Super helpful when debugging the transformation tree. Usually run this on your local computer, not the robot. Open it up with your favorite PDF reader or web browser |
-| ros2 run teleop_twist_keyboard teleop_twist_keyboard | Steer the robot with your keyboard |
+| `colcon build --symlink-install` | This is how you should typically build |
+| `colcon build --packages-select $package` | Save yourself time if you're working on one package |
+| `check_urdf $filename` | Is your URDF not rendering? You can check if it's valid with this command.  |
+| `xacro $filename.xacro` | Is your xacro not working? You can check if it's valid with this command.  |
+| `xacro $filename.xacro \| ros2 run gazebo_ros spawn_entity.py -entity a_name -x 0 -y 0 -z 0 -stdin` | Spawn a XACRO into Gazebo |
+| `ros2 run tf2_tools view_frames.py` | This will save frames.pdf to the location you ran the command. Super helpful when debugging the transformation tree. Usually run this on your local computer, not the robot. Open it up with your favorite PDF reader or web browser |
+| `ros2 run teleop_twist_keyboard teleop_twist_keyboard` | Steer the robot with your keyboard |
 
 # Launch Instructions
 
