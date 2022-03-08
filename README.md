@@ -35,9 +35,11 @@ This is my personal project which is oriented around my goal to build a [chainsa
   - cd ~/treespotte_ws/src
   - git clone git@github.com:KohlhardtC/roboclaw_ros.git
 
-# Tips & Tricks & Useful Commands
+# Tips & Tricks
 
 I found it a bit painful learning ROS2 (Probably because I tend to skim documentation). Here are some tips that I wish were front and center as I was learning
+
+## Tips
 
 - rviz2 has a learning curve. You'll save yourself some hassle if you use the rviz2 configuration file included in this repository
 - If you can't see anything in rviz2, it might be because you don't have Global Options -> Fixed Frame set to *base_link*. If you have mapping working, you'll want to change Global Options -> Fixed Frame set to *map*
@@ -46,6 +48,17 @@ I found it a bit painful learning ROS2 (Probably because I tend to skim document
 - You need something to give you the odom->base_link transformation. For Treespotte 3 that thing is the RealSense wrapper but it's actually transforming to `_pose_frame` so you need to add in a static transform from `_pose_frame` to `base_link`.  
 - When building a URDF for your robot, positive X is the front of your robot as per [rep 103](https://www.ros.org/reps/rep-0103.html). In RVIZ2 this shows up as a red bar. If your robot seems to be driving the wrong direction, there is a good chance this is the cause. Ask me how I know! ;)
 - Units are meters, kg, seconds as per [rep 103](https://www.ros.org/reps/rep-0103.html) but sometimes nanoseconds are used
+
+## Frequently Used Commands
+
+| command | explanation |
+|--------|------------|
+| colcon build --symlink-install | This is how you should typically build |
+| colcon build --packages-select $package | Save yourself time if you're working on one package |
+| check_urdf $filename | Is your URDF not rendering? You can check if it's valid with this command. Don't use this one if you have a xacro URDF |
+| xacro $filename.xacro \| ros2 run gazebo_ros spawn_entity.py -entity a_name -x 0 -y 0 -z 0 -stdin | Spawn a URDF into Gazebo |
+| ros2 run tf2_tools view_frames.py | This will save frames.pdf to the location you ran the command. Super helpful when debugging the transformation tree. Usually run this on your local computer, not the robot. Open it up with your favorite PDF reader or web browser |
+| ros2 run teleop_twist_keyboard teleop_twist_keyboard | Steer the robot with your keyboard |
 
 # Launch Instructions
 
