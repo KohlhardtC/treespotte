@@ -131,7 +131,7 @@ I had a hard time finding examples of hardware loadouts when I was building this
 | Encoder isn't advancing | Check to make sure wires are connected reliably |
 | LattePanda falls asleep | [This solved my problem with LatePanda falling asleep](https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/) |
 | T265 not found | If it was working before, sometimes unplugging the USB and plugging it back it helps |
-| \[slam_toolbox-1\] \[INFO\] \[slam_toolbox\]: Message Filter dropping message: frame 'laser' at time 1646404216.077 for reason 'Unknown'  | This error message could be a lot better to help new users. I believe it's saying that the odom->base_link transform is missing, therefore there is no laser transform availible, which means nothing will work. For TS3, this happens when something is wrong with the T265 transformation or something else in the transformation tree is missing  |
+| \[slam_toolbox-1\] \[INFO\] \[slam_toolbox\]: Message Filter dropping message: frame 'laser' at time 1646404216.077 for reason 'Unknown'  | This error message could be a lot better to help new users. I believe it's saying that the odom->base_link transform is missing, therefore there is no laser transform availible, which means nothing will work. For TS3, this happens when something is wrong with the T265 transformation or something else in the transformation tree is missing. See the **Expected Frames** section below for more detail.  |
 
 **Expected Frames**
 
