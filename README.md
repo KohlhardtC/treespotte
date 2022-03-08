@@ -86,7 +86,7 @@ Colors of Axis in RVIZ2:
 ## Frequently Used Commands
 
 | command | explanation |
-|--------|------------|
+|-------------------------------------------------------------------------------------|------------|
 | `colcon build --symlink-install` | This is how you should typically build |
 | `colcon build --packages-select $package` | Save yourself time if you're working on one package |
 | `check_urdf $filename` | Is your URDF not rendering? You can check if it's valid with this command.  |
@@ -95,7 +95,7 @@ Colors of Axis in RVIZ2:
 | `ros2 run tf2_tools view_frames.py` | This will save frames.pdf to the location you ran the command. Super helpful when debugging the transformation tree. Usually run this on your local computer, not the robot. Open it up with your favorite PDF reader or web browser |
 | `ros2 run teleop_twist_keyboard teleop_twist_keyboard` | Steer the robot with your keyboard |
 
-# Launch Instructions
+# Robot Specific Instructions
 
 ## Treespotte 3
 
@@ -133,5 +133,14 @@ If you are having trouble with things working or are getting lots of errors, mak
 ## Treespotte 3
 
 TODO - Example
+
+## Troubleshooting
+
+| Error | Possible Solution |
+|-------------------------|-------------------|
+| Error on startup: `Error, cannot retrieve Yd Lidar health code: ffffffff` | TODO |
+
+
+
 
 
