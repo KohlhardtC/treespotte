@@ -130,10 +130,7 @@ It's worth mentioning again that you can solve a lot of problems by having your 
 
 If you are having trouble with things working or are getting lots of errors, make sure your transformations tree looks something like these
 
-## Treespotte 3
-
-TODO - Example
-
+- [Treespotte 3 Expected Frames](extras/ts3-expected-frames.png)
 # Troubleshooting
 
 | Error | Possible Solution |
