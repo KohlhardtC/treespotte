@@ -55,6 +55,10 @@ This is my personal project which is oriented around my goal to build a [chainsa
 - . /opt/ros/foxy/setup.bash
 - colcon build --symlink-install
 
+# Run
+
+- TODO
+
 # Tips & Tricks
 
 I found it a bit painful learning ROS2 (Probably because I tend to skim documentation). Here are some tips that I wish were front and center as I was learning
