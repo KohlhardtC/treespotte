@@ -7,7 +7,7 @@ This is my personal project which is oriented around my goal to build a [chainsa
 - This work has been done using ROS2/Foxy on Ubuntu 20.04. I think it's likely to work with ROS2/Galactic
 - You'll be happier if you can run RVIZ2 on your local machine. I've had good luck using [The RobotStack install of ROS2 on my M1 Mac](https://github.com/RoboStack/ros-galactic) and they offer Windows builds too. You may try the official ROS2 version on your local machine as well. 
 - The hardware loadout for each Robot will be described below. 
-- The instructions below assume you have [SSH Authentication](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) setup with GitHub on your SBC. If you don't want to do this, you can probably get away with replacing *git clone git@github.com* with *git clone https://github.com*
+- The instructions below assume you have [SSH Authentication](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) setup with GitHub on your SBC.
 
 # Helpful Documentation
 
@@ -34,12 +34,17 @@ This is my personal project which is oriented around my goal to build a [chainsa
   - When you get to "Step 3: Install Intel® RealSense™ ROS2 wrapper from Sources" - You should be installing this in the *~/treespotte_ws/src* folder you created above
 - Install YDLidar Drivers
   - cd ~treespotte_ws/src
-  - git clone git@github.com/yangfuyuan/ydlidar_ros2
+  - git clone git@github.com:yangfuyuan/ydlidar_ros2.git
   - cd ~/treespotte_ws
   - colcon build --symlink-install 
 - Install RoboClaw drivers
   - cd ~/treespotte_ws/src
   - git clone git@github.com:KohlhardtC/roboclaw_ros.git
+- Install treespotte code
+  - cd ~/treespotte_ws/src
+  - git clone git@github.com:KohlhardtC/treespotte-ros2.git 
+- Check dependancies 
+  - TODO  
 
 # Tips & Tricks
 
