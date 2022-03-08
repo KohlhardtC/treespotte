@@ -70,7 +70,7 @@ I found it a bit painful learning ROS2 (Probably because I tend to skim document
 - If you can't see anything in rviz2, it might be because you don't have Global Options -> Fixed Frame set to *base_link*. If you have mapping working, you'll want to change Global Options -> Fixed Frame set to *map*
 - Sometimes you just need to shut down rviz2 and all other ros nodes to get things working properly. 
 - You need something to give you the map->odom transformation. For Treespotte 3 that thing is 
-- You need something to give you the odom->base_link transformation. For Treespotte 3 that thing is the RealSense wrapper but it's actually transforming to `_pose_frame` so you need to add in a static transform from `_pose_frame` to `base_link`.  
+- You need something to give you the odom->base_link transformation. For Treespotte 3 that thing is the RealSense wrapper but it's actually transforming to `_pose_frame` so you need to add in a static transform from `_pose_frame` to `base_link`. See the examples below to understand what the expected transforms should look like  
 - When building a URDF for your robot, positive X is the front of your robot as per [rep 103](https://www.ros.org/reps/rep-0103.html). In RVIZ2 this shows up as a red bar. If your robot seems to be driving the wrong direction, there is a good chance this is the cause. Ask me how I know! ;)
 - Units are meters, kg, seconds as per [rep 103](https://www.ros.org/reps/rep-0103.html) but sometimes nanoseconds are used
 - You can't have both a joint_state_publisher and a joint_state_publisher_gui running at the same time, otherwise things will go bonkers
@@ -122,15 +122,7 @@ I had a hard time finding examples of hardware loadouts when I was building this
 - [Wire](https://www.amazon.com/gp/product/B088KQFHV7/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1)
 - Short USB cables for the Lidar and T265
 
-# Expected Frames
 
-It's worth mentioning again that you can solve a lot of problems by having your transformations setup right. You can check this with the command:
-
-`ros2 run tf2_tools view_frames`
-
-If you are having trouble with things working or are getting lots of errors, make sure your transformations tree looks something like these
-
-- [Treespotte 3 Expected Frames](extras/ts3-expected-frames.png)
 # Troubleshooting
 
 | Error | Possible Solution |
@@ -140,3 +132,12 @@ If you are having trouble with things working or are getting lots of errors, mak
 | LattePanda falls asleep | [This solved my problem with LatePanda falling asleep](https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/) |
 | T265 not found | If it was working before, sometimes unplugging the USB and plugging it back it helps |
 
+
+**Expected Frames**
+
+It's worth mentioning again that you can solve a lot of problems by making sure your transformations are setup right. You can check this with the command:
+
+`ros2 run tf2_tools view_frames`
+
+If you are having trouble with things working or are getting lots of errors, make sure your transformations tree looks something like these
+- [Treespotte 3 Expected Frames](extras/ts3-expected-frames.png)
