@@ -42,7 +42,7 @@ This is my personal project which is oriented around my goal to build a [chainsa
   - git clone git@github.com:KohlhardtC/roboclaw_ros.git
 - Install treespotte code
   - cd ~/treespotte_ws/src
-  - git clone git@github.com:KohlhardtC/treespotte-ros2.git 
+  - git@github.com:KohlhardtC/treespotte.git
 - Check dependancies 
   - cd ~/treespotte_ws
   - sudo rosdep init
