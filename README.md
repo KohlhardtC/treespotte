@@ -74,7 +74,7 @@ I found it a bit painful learning ROS2 (Probably because I tend to skim document
 - When building a URDF for your robot, positive X is the front of your robot as per [rep 103](https://www.ros.org/reps/rep-0103.html). In RVIZ2 this shows up as a red bar. If your robot seems to be driving the wrong direction, there is a good chance this is the cause. Ask me how I know! ;)
 - Units are meters, kg, seconds as per [rep 103](https://www.ros.org/reps/rep-0103.html) but sometimes nanoseconds are used
 - You can't have both a joint_state_publisher and a joint_state_publisher_gui running at the same time, otherwise things will go bonkers
-
+- It's a good idea to have a solid understanding regarding which code is respoinsible for which transform. For example, with TS3, the `map->odom` transform is handled by the static_transform_publisher in the ts3.launch.py launch file, the `odom->_pose_frame` transform is handled by realsense2_camera, and the `_pose_frame->base_link` transform is handled by another static_transform_publsiher. Different robots with different sensors will certainly have different transforms. 
 
 Colors of Axis in RVIZ2:
 | color | rotation | axis |
