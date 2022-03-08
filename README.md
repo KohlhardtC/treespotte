@@ -66,7 +66,7 @@ I found it a bit painful learning ROS2 (Probably because I tend to skim document
 
 ## Tips
 
-- rviz2 has a learning curve. You'll save yourself some hassle if you use the rviz2 configuration file included in this repository
+- rviz2 has a learning curve. You'll save yourself some hassle if you use the [rviz2 configuration file](treespotte3.rviz) included in this repository
 - If you can't see anything in rviz2, it might be because you don't have Global Options -> Fixed Frame set to *base_link*. If you have mapping working, you'll want to change Global Options -> Fixed Frame set to *map*
 - Sometimes you just need to shut down rviz2 and all other ros nodes to get things working properly. 
 - You need something to give you the map->odom transformation. For Treespotte 3 that thing is 
@@ -131,7 +131,7 @@ I had a hard time finding examples of hardware loadouts when I was building this
 | Encoder isn't advancing | Check to make sure wires are connected reliably |
 | LattePanda falls asleep | [This solved my problem with LatePanda falling asleep](https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/) |
 | T265 not found | If it was working before, sometimes unplugging the USB and plugging it back it helps |
-
+| \[slam_toolbox-1\] \[INFO\] \[slam_toolbox\]: Message Filter dropping message: frame 'laser' at time 1646404216.077 for reason 'Unknown'  | This error message could be a lot better to help new users. I believe it's saying that the odom->base_link transform is missing, therefore there is no laser transform availible, which means nothing will work. For TS3, this happens when something is wrong with the T265 transformation or something else in the transformation tree is missing  |
 
 **Expected Frames**
 
