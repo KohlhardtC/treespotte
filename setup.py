@@ -16,8 +16,7 @@ setup(
 
         (os.path.join('share', package_name), glob('launch/*.py')), 
         (os.path.join('share', package_name), glob('config/*.*')), 
-        (os.path.join('share', package_name), glob('urdf/treespotte/*.*')), 
-        (os.path.join('share', package_name), glob('urdf/smalls/*.*')), 
+        (os.path.join('share', package_name), glob('urdf/ts3/*.*')), 
     ],
     install_requires=['setuptools'],
     zip_safe=True,

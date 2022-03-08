@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<robot name="tresspotte" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<gazebo reference="base_link">
+  <material>Gazebo/Red</material> 
+</gazebo>
+
+<gazebo reference="center_platform">
+  <material>Gazebo/Red</material> 
+</gazebo>
+
+
+<gazebo reference="front_bumper">
+  <material>Gazebo/Red</material> 
+</gazebo>
+
+
+<gazebo reference="rear_bumper">
+  <material>Gazebo/Red</material> 
+</gazebo>
+
+
+
+<!-- Used Husky for Inspiration -->
+<!-- https://github.com/husky/husky/blob/melodic-devel/husky_description/urdf/wheel.urdf.xacro -->
+
+<xacro:macro name="front_wheel_gazebo" params="link_name"> 
+		<gazebo reference="${link_name}">
+		  <material>Gazebo/Bricks</material> 
+          <kp>10000000.0</kp> 
+          <kd>1.0</kd> 
+		  <mu1>1.0</mu1>
+		  <mu2>1.0</mu2>
+		  <fdir1>1 0 0</fdir1>
+		</gazebo> 
+</xacro:macro>
+
+
+
+<xacro:macro name="rear_wheel_gazebo" params="link_name"> 
+		<gazebo reference="${link_name}">
+		  <material>Gazebo/Green</material> 
+          <kp>10000000.0</kp> 
+          <kd>1.0</kd> 
+		  <mu1>1.0</mu1>
+		  <mu2>1.0</mu2> 
+		  <fdir1>1 0 0</fdir1>
+		</gazebo> 
+</xacro:macro> 
+
+
+<xacro:rear_wheel_gazebo link_name="driver_middle_wheel" /> 
+<xacro:rear_wheel_gazebo link_name="passenger_middle_wheel" /> 
+
+<xacro:rear_wheel_gazebo link_name="driver_rear_wheel" /> 
+<xacro:rear_wheel_gazebo link_name="passenger_rear_wheel" /> 
+
+<xacro:front_wheel_gazebo link_name="driver_front_wheel" /> 
+<xacro:front_wheel_gazebo link_name="passenger_front_wheel" /> 
+
+<gazebo>
+      <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+
+        <ros>
+          <!-- namespace>/demo</namespace -->
+          <!-- remapping>cmd_vel:=cmd_demo</remapping -->
+          <remapping>odom:=odom_demo</remapping>
+        </ros>
+
+        <!-- wheels -->
+        <left_joint>driver_front_wheel_joint</left_joint>
+        <right_joint>passenger_front_wheel_joint</right_joint>
+
+        <!-- kinematics -->
+        <wheel_separation>0.16</wheel_separation>
+        <wheel_diameter>0.118</wheel_diameter>
+
+        <!-- limits -->
+        <max_wheel_torque>5</max_wheel_torque>
+        <max_wheel_acceleration>0.5</max_wheel_acceleration>
+
+        <!-- output -->
+        <publish_odom>true</publish_odom>
+        <publish_odom_tf>true</publish_odom_tf>
+        <publish_wheel_tf>false</publish_wheel_tf>
+
+        <odometry_frame>odom_demo</odometry_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+
+      </plugin>
+
+</gazebo>
+
+<xacro:include filename="$(find treespotte)/ydlidar.g2.gazebo" />
+
+</robot>

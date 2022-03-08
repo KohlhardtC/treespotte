@@ -1,0 +1,210 @@
+<?xml version="1.0" ?>
+<robot name="Treespotte3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find treespotte)/ts3.gazebo" />
+<!-- xacro:include filename="$(find treespotte)/ts3.ros2_control.xacro" / -->
+
+<xacro:property name="wheel_radius" value="0.045"/>
+<xacro:property name="wheel_width" value="0.010"/>
+<xacro:property name="wheel_zoff" value="0.020"/>
+<xacro:property name="wheel_xoff" value="0.065"/>
+<xacro:property name="wheel_yoff" value="${ (base_width / 2) + .009}"/>
+
+
+
+
+<xacro:property name="base_width" value="0.195"/>
+<xacro:property name="base_length" value="0.200"/>
+<xacro:property name="base_height" value="0.0365"/> 
+
+
+<xacro:property name="lidar_radius" value="${0.0737/2}"/> 
+<xacro:property name="lidar_height" value="0.0425"/> 
+<xacro:property name="lidar_xoff" value="0.050"/> 
+<xacro:property name="lidar_yoff" value="0.0"/> 
+<xacro:property name="lidar_zoff" value="0.06"/> 
+<!-- The lidar is mounted at an angle -->
+<xacro:property name="lidar_rotation" value="1.0472"/> 
+
+
+<xacro:property name="tracking_camera_length" value="0.108"/> 
+<xacro:property name="tracking_camera_width" value="0.0125"/> 
+<xacro:property name="tracking_camera_height" value="0.0245"/> 
+<xacro:property name="tracking_camera_xoff" value="${(base_length/2)}"/> 
+<xacro:property name="tracking_camera_yoff" value="0.0"/> 
+
+<xacro:property name="tracking_camera_zoff" value="0.006"/> 
+
+<material name="base_link_material">
+	<color rgba="1 0 0 .5" />
+</material>
+
+
+<material name="center_platform_material">
+	<color rgba="1 0 1 .5" />
+</material>
+
+
+<material name="red_material">
+	<color rgba=".9 .3 .3 1" />
+</material>
+
+<material name="blue_material">
+	<color rgba=".1 .1 .9 1" />
+</material>
+
+
+
+<material name="black_material">
+	<color rgba=".5 .5 .5 1" />
+</material>
+
+
+<material name="green_material">
+	<color rgba=".1 .9 .1 1" />
+</material>
+
+
+
+<material name="sensor_material">
+	<color rgba=".9 .3 .9 1" />
+</material>
+
+
+
+<link name="base_link">
+	<visual>
+		<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+		<geometry>
+			<box size="${base_length} ${base_width} ${base_height}" />
+		</geometry>	
+
+		<material name="base_link_material" /> 
+	</visual> 
+    
+    <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="6"/>
+        <inertia ixx="0.12545" ixy="0.0317" ixz="0.15625" iyy="0" iyz="0" izz="0"/> 
+    </inertial> 
+    <collision name="collision"> 
+	    <origin rpy="0 0 0" xyz="0 0 0"/>
+		<geometry> 
+		    <box size="${base_length} ${base_width} ${base_height}" />
+		</geometry>
+	</collision> 
+</link>
+
+<link name="base_footprint"/> 
+
+<xacro:macro name="wheel" params="link_name material"> 
+	<link name="${link_name}"> 
+ 		<visual> 
+			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/> 
+			<geometry> 
+				<cylinder radius="${wheel_radius}" length="${wheel_width
+}" /> 
+			</geometry>
+			<material name="${material}" /> 
+		</visual>
+
+        <inertial>
+		    <origin rpy="0 0 0" xyz="0 0 0"/>
+       		<mass value=".227"/>
+
+    		<inertia ixx="0.00013278124999999998" ixy="0.00013278124999999998" ixz="0.00021756249999999998" iyy="0" iyz="0" izz="0"/> 
+  
+        </inertial>
+
+		<collision> 
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry> 
+				<cylinder radius="${wheel_radius}" length="${wheel_width}" /> 
+			</geometry>
+		</collision>	
+	
+
+
+	</link>
+</xacro:macro>
+
+<xacro:wheel link_name="passenger_front_wheel" material="red_material"/> 
+<xacro:wheel link_name="passenger_rear_wheel" material="black_material"/> 
+<xacro:wheel link_name="driver_front_wheel" material="red_material"/> 
+<xacro:wheel link_name="driver_rear_wheel" material="black_material"/> 
+
+
+<link name="lidar"> 
+	<visual> 
+		<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/> 
+		<geometry> 
+			<cylinder radius="${lidar_radius}" length="${lidar_height}" /> 
+		</geometry>
+		<material name="sensor_material" /> 
+	</visual> 
+</link> 
+
+<link name="tracking_camera">
+	<visual> 
+		<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/> 
+		<geometry> 
+			<box size="${tracking_camera_length} ${tracking_camera_width} ${tracking_camera_height}"/> 
+		</geometry>
+		<material name="sensor_material" /> 
+	</visual> 
+</link> 
+
+
+<xacro:macro name="default_wheel_joint" params="xyz child_wheel_name"> 
+<!-- Change this to revolute to make the wheels movable -->
+<joint name="${child_wheel_name}_joint" type="fixed">
+	<parent link="base_link" /> 
+	<child link="${child_wheel_name}"/> 
+	<origin xyz="${xyz}" rpy="1.5708 1.5708 0.0"/> 
+    <axis xyz="0 0 1" /> 
+    <limit lower="-300" upper="300" effort="1" velocity="1" /> 
+</joint> 
+</xacro:macro>
+
+
+<xacro:default_wheel_joint child_wheel_name="driver_front_wheel" 
+                           xyz="${wheel_xoff} ${wheel_yoff} ${-wheel_zoff}" />  
+
+<xacro:default_wheel_joint child_wheel_name="driver_rear_wheel" 
+                           xyz="${-wheel_xoff} ${wheel_yoff} ${-wheel_zoff}" /> 
+
+<xacro:default_wheel_joint child_wheel_name="passenger_rear_wheel" 
+                           xyz="${-wheel_xoff} ${-wheel_yoff} ${-wheel_zoff}" /> 
+
+<xacro:default_wheel_joint child_wheel_name="passenger_front_wheel" 
+                           xyz="${wheel_xoff} ${-wheel_yoff} ${-wheel_zoff}" /> 
+
+
+<joint name="lidar_joint" type="fixed">
+	<parent link="base_link" />
+	<child link="lidar" /> 
+	<origin xyz="${lidar_xoff} ${lidar_yoff} ${lidar_zoff}" rpy="0.0 0.0 ${lidar_rotation}" /> 
+</joint> 
+
+
+
+
+
+<joint name="camera_joint" type="fixed">
+	<parent link="base_link" />
+	<child link="tracking_camera" /> 
+	<origin xyz="${tracking_camera_xoff} ${tracking_camera_yoff} ${tracking_camera_zoff}" rpy="0.0 0.0 1.5708" /> 
+    <axis xyz="1 0 0" /> 
+</joint> 
+
+<joint name="base_footprint_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+    <origin xyz="0.0 0.0 ${-(wheel_radius+wheel_zoff)}" rpy="0 0 0"/>
+</joint>
+
+
+
+<!-- xacro:smalls_ros2_control name="smalls" prefix="" / -->
+
+</robot>
