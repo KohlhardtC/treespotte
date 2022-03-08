@@ -57,7 +57,8 @@ This is my personal project which is oriented around my goal to build a [chainsa
 
 # Run
 
-- TODO
+- . install/setup.bash (only need to do this once per terminal session)
+- ros2 launch treespotte ts3.launch.py
 
 # Tips & Tricks
 
