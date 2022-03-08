@@ -134,7 +134,7 @@ If you are having trouble with things working or are getting lots of errors, mak
 
 TODO - Example
 
-## Troubleshooting
+# Troubleshooting
 
 | Error | Possible Solution |
 |-------------------------|-------------------|
@@ -142,5 +142,4 @@ TODO - Example
 | Encoder isn't advancing | Check to make sure wires are connected reliably |
 | LattePanda falls asleep | [This solved my problem with LatePanda falling asleep](https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/) |
 | T265 not found | If it was working before, sometimes unplugging the USB and plugging it back it helps |
-
 
