@@ -1,5 +1,5 @@
 # Not Supported
-This is my personal project which is oriented around my goal to build a [chainsaw wielding robot](https://www.chriskohlhardt.com/forest-thinning-robots) using ROS2. At this stage I'm really just learning. I'm happy to help others who are also learning, but I'm not trying to support this as an active project at this point (and may never do so in the future). I'm making this repository public to help others who are also trying to learn. Good luck!
+This is a personal project which is oriented around my goal to eventually build a [chainsaw wielding robot](https://www.chriskohlhardt.com/forest-thinning-robots) using ROS2. At this stage I'm really just learning. I'm happy to help others who are also learning, but I'm not trying to support this as an active project at this point (and may never do so in the future). I'm making this repository public to help others who are also trying to learn. Good luck!
 
 # Prerequisites
 
