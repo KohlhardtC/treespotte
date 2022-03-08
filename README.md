@@ -139,7 +139,7 @@ TODO - Example
 | Error | Possible Solution |
 |-------------------------|-------------------|
 | Error on startup: `Error, cannot retrieve Yd Lidar health code: ffffffff` | TODO |
-
+| Encoder isn't advancing | Check to make sure wires are connected reliably |
 
 
 
