@@ -98,9 +98,9 @@ I had a hard time finding examples of hardware loadouts when I was building this
 
 # Expected Frames
 
-It's worth mentioning again that you can solve a lot of problems by having your transformations setup right. 
+It's worth mentioning again that you can solve a lot of problems by having your transformations setup right. You can check this with the command:
 
-ros2 run tf2_tools view_frames
+`ros2 run tf2_tools view_frames`
 
 If you are having trouble with things working or are getting lots of errors, make sure your transformations tree looks something like these
 
