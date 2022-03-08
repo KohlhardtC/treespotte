@@ -40,9 +40,9 @@ This is my personal project which is oriented around my goal to build a [chainsa
 - Install RoboClaw drivers
   - cd ~/treespotte_ws/src
   - git clone git@github.com:KohlhardtC/roboclaw_ros.git
-- Install treespotte code
+- Install this treespotte code
   - cd ~/treespotte_ws/src
-  - git@github.com:KohlhardtC/treespotte.git
+  - git clone git@github.com:KohlhardtC/treespotte.git
 - Check dependancies 
   - cd ~/treespotte_ws
   - sudo rosdep init
