@@ -140,7 +140,7 @@ TODO - Example
 |-------------------------|-------------------|
 | Error on startup: `Error, cannot retrieve Yd Lidar health code: ffffffff` | Unplug all YDLidar connections and plug them back in. Make sure all connections are good. Reboot the SBC |
 | Encoder isn't advancing | Check to make sure wires are connected reliably |
-
+| LattePanda falls asleep | [This solved my problem with LatePanda falling asleep](https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/) |
 
 
 
