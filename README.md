@@ -21,8 +21,14 @@ This is my personal project which is oriented around my goal to build a [chainsa
 - Create a new ROS2 workspace (it's ok if you replace ~ for another workspace location, but we'll assume ~/treespotte_ws for this document)
   - mkdir -p ~/treespotte_ws/src/
   - cd ~/treespotte_ws/src
-- Install other required ROS2 components
-  - TODO 
+- Install other required ROS2 components - Some of these may be redundent
+  - sudo apt install ros-foxy-desktop
+  - sudo apt install ros-foxy-xacro
+  - sudo apt install ros-foxy-ros2-control ros-foxy-ros2-controllers
+  - sudo apt install ros-foxy-tf-transformations
+  - sudo apt install python3-colcon-common-extensions
+  - sudo apt install ros-foxy-slam-toolbox
+  - sudo pip3 install transforms3d
 - [RealSense ROS2 Wrapper](https://github.com/IntelRealSense/realsense-ros/tree/ros2) 
   - Install with "Method 2" for best performance
   - When you get to "Step 3: Install Intel® RealSense™ ROS2 wrapper from Sources" - You should be installing this in the *~/treespotte_ws/src* folder you created above
