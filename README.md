@@ -44,7 +44,20 @@ This is my personal project which is oriented around my goal to build a [chainsa
   - cd ~/treespotte_ws/src
   - git clone git@github.com:KohlhardtC/treespotte-ros2.git 
 - Check dependancies 
-  - TODO  
+  - cd ~/treespotte_ws
+  - sudo rosdep init
+  - rosdep update
+  - **TODO:I'm missing a step I think**
+
+# Build
+
+- cd ~/treespotte_ws
+- . /opt/ros/foxy/setup.bash
+- colcon build --symlink-install
+
+# Run
+
+- TODO
 
 # Tips & Tricks
 
