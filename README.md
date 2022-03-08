@@ -138,7 +138,7 @@ TODO - Example
 
 | Error | Possible Solution |
 |-------------------------|-------------------|
-| Error on startup: `Error, cannot retrieve Yd Lidar health code: ffffffff` | TODO |
+| Error on startup: `Error, cannot retrieve Yd Lidar health code: ffffffff` | Unplug all YDLidar connections and plug them back in. Make sure all connections are good. Reboot the SBC |
 | Encoder isn't advancing | Check to make sure wires are connected reliably |
 
 
