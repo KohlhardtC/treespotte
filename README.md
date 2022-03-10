@@ -58,7 +58,9 @@ This is a personal project which is oriented around my goal to eventually build 
 # Run
 
 - . install/setup.bash (only need to do this once per terminal session)
-- ros2 launch treespotte ts3.launch.py
+- **Setup the robot to map:** ros2 launch treespotte ts3.launch.py
+- **Turn on navigation:** ros2 launch treespotte treespotte navigation_launch.py
+-  
 
 # Tips & Tricks
 
