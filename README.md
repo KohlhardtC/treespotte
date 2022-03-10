@@ -85,7 +85,7 @@ Colors of Axis in RVIZ2:
 |Green|Pitch|y|
 |Yellow|Yaw|z|
 
-## Frequently Used Commands
+## Useful Commands
 
 | command | explanation |
 |-------------------------------------------------------------------------------------|------------|
@@ -96,6 +96,8 @@ Colors of Axis in RVIZ2:
 | `xacro $filename.xacro \| ros2 run gazebo_ros spawn_entity.py -entity a_name -x 0 -y 0 -z 0 -stdin` | Spawn a XACRO into Gazebo |
 | `ros2 run tf2_tools view_frames.py` | This will save frames.pdf to the location you ran the command. Super helpful when debugging the transformation tree. Usually run this on your local computer, not the robot. Open it up with your favorite PDF reader or web browser |
 | `ros2 run teleop_twist_keyboard teleop_twist_keyboard` | Steer the robot with your keyboard |
+| `upower -i /org/freedesktop/UPower/devices/battery_BAT0` | Check battery status |
+
 
 # Robot Specific Instructions
 
