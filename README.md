@@ -125,6 +125,8 @@ I had a hard time finding examples of hardware loadouts when I was building this
 - [Wheel Hubs](https://www.robotshop.com/en/pololu-universal-aluminum-6mm-mounting-hubs-4-40.html)
 - [Wire](https://www.amazon.com/gp/product/B088KQFHV7/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1)
 - Short USB cables for the Lidar and T265
+- [Clamping Collar](https://www.gobilda.com/2910-series-aluminum-clamping-collar-6mm-id-x-19mm-od-9mm-length/)
+- [Stainless Steel D-Shaft (6mm Diameter, 40mm Length)](https://www.gobilda.com/2101-series-stainless-steel-d-shaft-6mm-diameter-40mm-length/)
 
 
 # Troubleshooting
