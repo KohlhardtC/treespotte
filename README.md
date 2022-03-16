@@ -1,5 +1,5 @@
 # Not Supported
-This is my personal project which is oriented around my goal to build a [chainsaw wielding robot](https://www.chriskohlhardt.com/forest-thinning-robots) using ROS2. At this stage I'm really just learning. I'm happy to help others who are also learning, but I'm not trying to support this as an active project at this point (and may never do so in the future). I'm making this repository public to help others who are also trying to learn. Good luck!
+This is a personal project which is oriented around my goal to eventually build a [chainsaw wielding robot](https://www.chriskohlhardt.com/forest-thinning-robots) using ROS2. At this stage I'm really just learning. I'm happy to help others who are also learning, but I'm not trying to support this as an active project at this point (and may never do so in the future). I'm making this repository public to help others who are also trying to learn. Good luck!
 
 # Prerequisites
 
@@ -58,7 +58,9 @@ This is my personal project which is oriented around my goal to build a [chainsa
 # Run
 
 - . install/setup.bash (only need to do this once per terminal session)
-- ros2 launch treespotte ts3.launch.py
+- **Setup the robot to map:** ros2 launch treespotte ts3.launch.py
+- **Turn on navigation:** ros2 launch treespotte treespotte navigation_launch.py
+-  
 
 # Tips & Tricks
 
@@ -66,15 +68,15 @@ I found it a bit painful learning ROS2 (Probably because I tend to skim document
 
 ## Tips
 
-- rviz2 has a learning curve. You'll save yourself some hassle if you use the rviz2 configuration file included in this repository
+- rviz2 has a learning curve. You'll save yourself some hassle if you use the [rviz2 configuration file](treespotte3.rviz) included in this repository
 - If you can't see anything in rviz2, it might be because you don't have Global Options -> Fixed Frame set to *base_link*. If you have mapping working, you'll want to change Global Options -> Fixed Frame set to *map*
 - Sometimes you just need to shut down rviz2 and all other ros nodes to get things working properly. 
 - You need something to give you the map->odom transformation. For Treespotte 3 that thing is 
-- You need something to give you the odom->base_link transformation. For Treespotte 3 that thing is the RealSense wrapper but it's actually transforming to `_pose_frame` so you need to add in a static transform from `_pose_frame` to `base_link`.  
+- You need something to give you the odom->base_link transformation. For Treespotte 3 that thing is the RealSense wrapper but it's actually transforming to `_pose_frame` so you need to add in a static transform from `_pose_frame` to `base_link`. See the examples below to understand what the expected transforms should look like  
 - When building a URDF for your robot, positive X is the front of your robot as per [rep 103](https://www.ros.org/reps/rep-0103.html). In RVIZ2 this shows up as a red bar. If your robot seems to be driving the wrong direction, there is a good chance this is the cause. Ask me how I know! ;)
 - Units are meters, kg, seconds as per [rep 103](https://www.ros.org/reps/rep-0103.html) but sometimes nanoseconds are used
 - You can't have both a joint_state_publisher and a joint_state_publisher_gui running at the same time, otherwise things will go bonkers
-
+- It's a good idea to have a solid understanding regarding which code is respoinsible for which transform. For example, with TS3, the `map->odom` transform is handled by the static_transform_publisher in the ts3.launch.py launch file, the `odom->_pose_frame` transform is handled by realsense2_camera, and the `_pose_frame->base_link` transform is handled by another static_transform_publsiher. Different robots with different sensors will certainly have different transforms. 
 
 Colors of Axis in RVIZ2:
 | color | rotation | axis |
@@ -83,7 +85,7 @@ Colors of Axis in RVIZ2:
 |Green|Pitch|y|
 |Yellow|Yaw|z|
 
-## Frequently Used Commands
+## Useful Commands
 
 | command | explanation |
 |-------------------------------------------------------------------------------------|------------|
@@ -94,6 +96,8 @@ Colors of Axis in RVIZ2:
 | `xacro $filename.xacro \| ros2 run gazebo_ros spawn_entity.py -entity a_name -x 0 -y 0 -z 0 -stdin` | Spawn a XACRO into Gazebo |
 | `ros2 run tf2_tools view_frames.py` | This will save frames.pdf to the location you ran the command. Super helpful when debugging the transformation tree. Usually run this on your local computer, not the robot. Open it up with your favorite PDF reader or web browser |
 | `ros2 run teleop_twist_keyboard teleop_twist_keyboard` | Steer the robot with your keyboard |
+| `upower -i /org/freedesktop/UPower/devices/battery_BAT0` | Check battery status |
+
 
 # Robot Specific Instructions
 
@@ -121,18 +125,9 @@ I had a hard time finding examples of hardware loadouts when I was building this
 - [Wheel Hubs](https://www.robotshop.com/en/pololu-universal-aluminum-6mm-mounting-hubs-4-40.html)
 - [Wire](https://www.amazon.com/gp/product/B088KQFHV7/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1)
 - Short USB cables for the Lidar and T265
+- [Clamping Collar](https://www.gobilda.com/2910-series-aluminum-clamping-collar-6mm-id-x-19mm-od-9mm-length/)
+- [Stainless Steel D-Shaft (6mm Diameter, 40mm Length)](https://www.gobilda.com/2101-series-stainless-steel-d-shaft-6mm-diameter-40mm-length/)
 
-# Expected Frames
-
-It's worth mentioning again that you can solve a lot of problems by having your transformations setup right. You can check this with the command:
-
-`ros2 run tf2_tools view_frames`
-
-If you are having trouble with things working or are getting lots of errors, make sure your transformations tree looks something like these
-
-## Treespotte 3
-
-TODO - Example
 
 # Troubleshooting
 
@@ -142,4 +137,13 @@ TODO - Example
 | Encoder isn't advancing | Check to make sure wires are connected reliably |
 | LattePanda falls asleep | [This solved my problem with LatePanda falling asleep](https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/) |
 | T265 not found | If it was working before, sometimes unplugging the USB and plugging it back it helps |
+| \[slam_toolbox-1\] \[INFO\] \[slam_toolbox\]: Message Filter dropping message: frame 'laser' at time 1646404216.077 for reason 'Unknown'  | This error message could be a lot better to help new users. I believe it's saying that the odom->base_link transform is missing, therefore there is no laser transform availible, which means nothing will work. For TS3, this happens when something is wrong with the T265 transformation or something else in the transformation tree is missing. See the **Expected Frames** section below for more detail.  |
 
+**Expected Frames**
+
+It's worth mentioning again that you can solve a lot of problems by making sure your transformations are setup right. You can check this with the command:
+
+`ros2 run tf2_tools view_frames`
+
+If you are having trouble with things working or are getting lots of errors, make sure your transformations tree looks something like these
+- [Treespotte 3 Expected Frames](extras/ts3-expected-frames.png)
