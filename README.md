@@ -94,7 +94,7 @@ Colors of Axis in RVIZ2:
 | `check_urdf $filename` | Is your URDF not rendering? You can check if it's valid with this command.  |
 | `xacro $filename.xacro` | Is your xacro not working? You can check if it's valid with this command.  |
 | `xacro $filename.xacro \| ros2 run gazebo_ros spawn_entity.py -entity a_name -x 0 -y 0 -z 0 -stdin` | Spawn a XACRO into Gazebo |
-| `ros2 run tf2_tools view_frames.py` | This will save frames.pdf to the location you ran the command. Super helpful when debugging the transformation tree. Usually run this on your local computer, not the robot. Open it up with your favorite PDF reader or web browser |
+| `ros2 run tf2_tools view_frames` | This will save frames.pdf to the location you ran the command. Super helpful when debugging the transformation tree. Usually run this on your local computer, not the robot. Open it up with your favorite PDF reader or web browser |
 | `ros2 run teleop_twist_keyboard teleop_twist_keyboard` | Steer the robot with your keyboard |
 | `upower -i /org/freedesktop/UPower/devices/battery_BAT0` | Check battery status |
 
