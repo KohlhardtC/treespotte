@@ -30,6 +30,7 @@ This is a personal project which is oriented around my goal to eventually build 
   - sudo apt install ros-foxy-slam-toolbox
   - sudo apt install ros-foxy-diagnostic-updater
   - sudo pip3 install transforms3d
+  - sudo pip3 install pyserial
   - sudo pip install -U rosdep
 - [RealSense ROS2 Wrapper](https://github.com/IntelRealSense/realsense-ros/tree/ros2) 
   - Install with "Method 2" for best performance
