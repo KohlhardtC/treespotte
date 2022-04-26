@@ -29,6 +29,7 @@ This is a personal project which is oriented around my goal to eventually build 
   - sudo apt install python3-colcon-common-extensions
   - sudo apt install ros-foxy-slam-toolbox
   - sudo pip3 install transforms3d
+  - sudo pip install -U rosdep
 - [RealSense ROS2 Wrapper](https://github.com/IntelRealSense/realsense-ros/tree/ros2) 
   - Install with "Method 2" for best performance
   - When you get to "Step 3: Install Intel® RealSense™ ROS2 wrapper from Sources" - You should be installing this in the *~/treespotte_ws/src* folder you created above
