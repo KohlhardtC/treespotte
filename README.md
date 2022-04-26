@@ -28,6 +28,7 @@ This is a personal project which is oriented around my goal to eventually build 
   - sudo apt install ros-foxy-tf-transformations
   - sudo apt install python3-colcon-common-extensions
   - sudo apt install ros-foxy-slam-toolbox
+  - sudo apt install ros-foxy-diagnostic-updater
   - sudo pip3 install transforms3d
   - sudo pip install -U rosdep
 - [RealSense ROS2 Wrapper](https://github.com/IntelRealSense/realsense-ros/tree/ros2) 
