@@ -52,6 +52,9 @@ This is a personal project which is oriented around my goal to eventually build 
   - rosdep update
   - **TODO:I'm missing a step I think**
 
+# Permissions
+ - On Jetson Orin, I found that I needed to add myself to the dialout group to be able to access the device without sudo. I had to reboot after granting permission. 
+
 # Build
 
 - cd ~/treespotte_ws
