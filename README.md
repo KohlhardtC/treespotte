@@ -116,7 +116,7 @@ I had a hard time finding examples of hardware loadouts when I was building this
 - 3D printed chasis created in Fusion 360 (availible upon request)
 - Jetson AGX Orin for the robot brain. [UART Pinouts](https://jetsonhacks.com/nvidia-jetson-agx-orin-gpio-header-pinout/)
 - [RoboClaw 2x7A Motor Controller](https://www.basicmicro.com/Roboclaw-2x7A-Motor-Controller_p_55.html) - [Datasheet](https://downloads.basicmicro.com/docs/roboclaw_datasheet_2x7A.pdf) 
-  - Jetson Orin UART pins 6(GND),8(TX),10(RX) connected to RoboClaw (see datasheet for pinouts) S1(GND), S1(I/O:RX) and S2(I/O:TX) respectively. NOTE: This UART shows up as **/dev/ttyTHS0** on the roboclaw. **Set the speed to 115200 in BaseMicro Studio**
+  - Jetson Orin UART pins 6(GND),8(TX),10(RX) connected to RoboClaw (see datasheet for pinouts) S1(GND), S1(I/O:RX) and S2(I/O:TX) respectively. NOTE: This UART shows up as **/dev/ttyTHS0** on the AGX Orin. **Set the speed to 115200 in BaseMicro Studio**
 
 ## Treespotte 3
 
