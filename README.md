@@ -69,10 +69,17 @@ This is a personal project which is oriented around my goal to eventually build 
 
 # Run
 
-- . install/setup.bash (only need to do this once per terminal session)
-- **Setup the robot to map:** ros2 launch treespotte ts3.launch.py
-- **Turn on navigation:** ros2 launch treespotte treespotte navigation_launch.py
--  
+## Treespotte 3
+
+- `cd ~/treespotte_ws`
+- `. install/setup.bash`
+- `ros2 launch treespotte ts3.launch.py`
+
+## Treespotte 4
+
+- `cd ~/treespotte_ws`
+- `. install/setup.bash`
+- `ros2 launch treespotte ts4.launch.py` *NOTE:* This launch file is configured to work with the ZED2i. 
 
 # Tips & Tricks
 
