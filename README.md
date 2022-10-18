@@ -42,6 +42,9 @@ This is a personal project which is oriented around my goal to eventually build 
   - colcon build --symlink-install
 - Install ZED Ros2 Drivers (Treespotte 4)
   - Install ZED SDK first
+  - Make sure you source ROS2 before running rosdep and colcon
+  - The git clone step is missing the recursive call and should be:
+    - `git clone --recursive https://github.com/stereolabs/zed-ros2-wrapper.git`
   - Follow the [ZED ROS2 install directions](https://www.stereolabs.com/docs/ros2/)
 - Install RoboClaw drivers
   - cd ~/treespotte_ws/src
