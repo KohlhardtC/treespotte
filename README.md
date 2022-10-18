@@ -35,11 +35,14 @@ This is a personal project which is oriented around my goal to eventually build 
 - [RealSense ROS2 Wrapper](https://github.com/IntelRealSense/realsense-ros/tree/ros2) 
   - Install with "Method 2" for best performance
   - When you get to "Step 3: Install Intel® RealSense™ ROS2 wrapper from Sources" - You should be installing this in the *~/treespotte_ws/src* folder you created above
-- Install YDLidar Drivers
+- Install YDLidar Drivers (Treespotte 3)
   - cd ~treespotte_ws/src
   - git clone git@github.com:yangfuyuan/ydlidar_ros2.git
   - cd ~/treespotte_ws
-  - colcon build --symlink-install 
+  - colcon build --symlink-install
+- Install ZED Ros2 Drivers (Treespotte 4)
+  - Install ZED SDK first
+  - Follow the ZED ROS2 directions here: https://www.stereolabs.com/docs/ros2/
 - Install RoboClaw drivers
   - cd ~/treespotte_ws/src
   - git clone git@github.com:KohlhardtC/roboclaw_ros.git
