@@ -42,7 +42,7 @@ This is a personal project which is oriented around my goal to eventually build 
   - colcon build --symlink-install
 - Install ZED Ros2 Drivers (Treespotte 4)
   - Install ZED SDK first
-  - Follow the ZED ROS2 directions here: https://www.stereolabs.com/docs/ros2/
+  - Follow the [ZED ROS2 install directions](https://www.stereolabs.com/docs/ros2/)
 - Install RoboClaw drivers
   - cd ~/treespotte_ws/src
   - git clone git@github.com:KohlhardtC/roboclaw_ros.git
